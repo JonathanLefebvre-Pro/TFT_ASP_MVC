@@ -1,0 +1,11 @@
+﻿@using WebApp.Forms;
+@model TaskForm
+
+<h1>Add task</h1>
+
+<form class="form" method="post" asp-action="Create" asp-controller="Task">
+    <label asp-for="Title"></label>
+    <input type="text" name="Title" placeholder="Title" />
+    <validation-message asp-for="Title" class="text-danger" />
+    <button type="submit" asp-action="Create" asp-controller="Task">Create</button>
+</form>

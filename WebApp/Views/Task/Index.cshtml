@@ -1,0 +1,22 @@
+﻿@using DE = WebApp.Domain.Entities;
+@model IEnumerable<DE.Task>
+
+<h1>Task list</h1>
+
+<table class="table">
+    <tr class="table-dark">
+        <th class="col-md-1">Id</th>
+        <th class="col-md-4">Title</th>
+        <th class="col-md-3">Creation Date</th>
+        <th class="col-md-1">Done</th>
+    </tr>
+    @foreach (DE.Task task in Model)
+    {
+        <tr class="table-light">
+            <td class="col-md-1">@task.Id</td>
+            <td class="col-md-4">@task.Title</td>
+            <td class="col-md-3">@task.CreationDate</td>
+            <td class="col-md-1">@task.Done</td>
+        </tr>
+    }
+</table>
