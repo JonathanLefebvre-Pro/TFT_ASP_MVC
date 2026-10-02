@@ -14,7 +14,7 @@ public class TaskFormEdit
         ErrorMessage = "Title must be between 3 and 50 characters."
     )]
     public string Title { get; set; } = string.Empty;
-    public bool Done { get; set; }
+    public bool IsCompleted { get; set; }
 }
 
 public static class TaskFormEditExtension
@@ -24,7 +24,7 @@ public static class TaskFormEditExtension
         TaskFormEdit form = new TaskFormEdit();
         form.Id = task.Id;
         form.Title = task.Title;
-        form.Done = task.Done;
+        form.IsCompleted = task.IsCompleted;
         return form;
     }
 
@@ -33,7 +33,7 @@ public static class TaskFormEditExtension
         DE.Task task = new DE.Task();
         task.Id = form.Id;
         task.Title = form.Title;
-        task.Done = form.Done;
+        task.IsCompleted = form.IsCompleted;
         return task;
     }
 }

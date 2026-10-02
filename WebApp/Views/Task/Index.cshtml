@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Task";
+    ViewData["Title"] = "Tasks list";
 }
 
 @using DE = WebApp.Domain.Entities;
@@ -18,7 +18,7 @@
         <th class="col-md-1">Id</th>
         <th class="col-md-4">Title</th>
         <th class="col-md-3">Creation Date</th>
-        <th class="col-md-1">Done</th>
+        <th class="col-md-1">Completed</th>
         <th class="col-md-1">Delete</td>
             <th class="col-md-1">Edit</td>
             </tr>
@@ -28,7 +28,7 @@
                     <td class="col-md-1">@task.Id</td>
                     <td class="col-md-4">@task.Title</td>
                     <td class="col-md-3">@task.CreationDate</td>
-                    <td class="col-md-1"><input type="checkbox" checked="@task.Done" disabled /></td>
+                    <td class="col-md-1"><input type="checkbox" checked="@task.IsCompleted" disabled /></td>
                     <td class="col-md-1">
                         <form method="post" asp-action="Delete" asp-controller="Task">
                             <button class="btn btn-danger btn-sm" type="submit" name="id" value="@task.Id">X</button>
