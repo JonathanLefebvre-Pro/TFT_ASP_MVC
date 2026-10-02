@@ -28,7 +28,7 @@
                     <td class="col-md-1">@task.Id</td>
                     <td class="col-md-4">@task.Title</td>
                     <td class="col-md-3">@task.CreationDate</td>
-                    <td class="col-md-1"><input type="checkbox" checked="@task.Completed" disabled /></td>
+                    <td class="col-md-1"><input type="checkbox" checked="@task.Done" disabled /></td>
                     <td class="col-md-1">
                         <form method="post" asp-action="Delete" asp-controller="Task">
                             <button class="btn btn-danger btn-sm" type="submit" name="id" value="@task.Id">X</button>
