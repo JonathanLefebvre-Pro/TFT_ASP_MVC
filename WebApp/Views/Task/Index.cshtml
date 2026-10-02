@@ -1,7 +1,17 @@
-﻿@using DE = WebApp.Domain.Entities;
+﻿@{
+    ViewData["Title"] = "Task";
+}
+
+@using DE = WebApp.Domain.Entities;
 @model IEnumerable<DE.Task>
 
 <h1>Task list</h1>
+
+@if (Model is null || Model.Count() is 0)
+{
+    <h2>The list of tasks is empty !</h2>
+    return;
+}
 
 <table class="table">
     <tr class="table-dark">
@@ -9,14 +19,26 @@
         <th class="col-md-4">Title</th>
         <th class="col-md-3">Creation Date</th>
         <th class="col-md-1">Done</th>
-    </tr>
-    @foreach (DE.Task task in Model)
-    {
-        <tr class="table-light">
-            <td class="col-md-1">@task.Id</td>
-            <td class="col-md-4">@task.Title</td>
-            <td class="col-md-3">@task.CreationDate</td>
-            <td class="col-md-1">@task.Done</td>
-        </tr>
-    }
-</table>
+        <th class="col-md-1">Delete</td>
+            <th class="col-md-1">Edit</td>
+            </tr>
+            @foreach (DE.Task task in Model)
+            {
+                <tr class="table-light">
+                    <td class="col-md-1">@task.Id</td>
+                    <td class="col-md-4">@task.Title</td>
+                    <td class="col-md-3">@task.CreationDate</td>
+                    <td class="col-md-1"><input type="checkbox" checked="@task.Completed" disabled /></td>
+                    <td class="col-md-1">
+                        <form method="post" asp-action="Delete" asp-controller="Task">
+                            <button class="btn btn-danger btn-sm" type="submit" name="id" value="@task.Id">X</button>
+                        </form>
+                    </td>
+                    <td class="col-md-1">
+                        <form method="post" asp-action="Edit" asp-controller="Task">
+                            <button class="btn btn-secondary btn-sm" type="submit" name="id" value="@task.Id">Edit</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>

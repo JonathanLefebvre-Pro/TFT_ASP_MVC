@@ -11,6 +11,8 @@ builder.Services.AddHttpClient(
     }
 );
 
+builder.Services.AddLogging();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
